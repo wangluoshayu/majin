@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置accountService对象-->
+    <bean id="accountService" class="com.deyuan.service.impl.AccountServiceImpl">
+         <constructor-arg name="uname" value="张三"></constructor-arg>
+         <constructor-arg name="age" value="18"></constructor-arg>
+         <property name="accountDao" ref="acccountDao"></property>
+        <!--注入数组-->
+        <property name="myStr">
+            <array>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </array>
+        </property>
+        <!--注入Set-->
+        <property name="mySet">
+            <set>
+                <value>setA</value>
+                <value>setB</value>
+                <value>setC</value>
+            </set>
+        </property>
+        <!--注入list-->
+        <property name="myList">
+            <list>
+                <value>listA</value>
+                <value>listB</value>
+                <value>listC</value>
+            </list>
+        </property>
+        <!--注入map-->
+        <property name="myMap">
+            <map>
+                <entry key="aaa" value="111"></entry>
+                <entry key="bbb" value="222"></entry>
+                <entry key="ccc" value="333"></entry>
+                <entry key="ddd">
+                    <value>444</value>
+                </entry>
+            </map>
+        </property>
+        <!--注入Properties-->
+        <property name="myPros">
+            <props>
+                <prop key="qqq">AAA</prop>
+                <prop key="ddd">BBB</prop>
+            </props>
+        </property>
+    </bean>
+    <!--配置accountDao对象-->
+    <bean id="acccountDao" class="com.deyuan.dao.impl.AccountDaoImpl">
+    </bean>
+</beans>
